@@ -24,3 +24,11 @@ print(all_data.head())
 checkout_no_purchase = all_data[all_data.purchase_time.isnull()].count() / all_data[~all_data.checkout_time.isnull()].count()
 print(checkout_no_purchase)
 
+all_data['time_to_purchase'] = \
+    all_data.purchase_time - \
+    all_data.visit_time
+
+print(all_data.time_to_purchase)
+print(all_data.time_to_purchase.mean())
+
+
